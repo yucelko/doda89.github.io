@@ -2,7 +2,9 @@ var flag = "23-30Dec";
 
 function bringMatches() {
   alert(document.getElementById('startDate').value);
-  myFunk("25-31");
+  alert(document.getElementById('endDate').value);
+  myFunk(document.getElementById('startDate').value);
+  myFunk(document.getElementById('endDate').value);
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
@@ -445,57 +447,54 @@ function myFunk(docName) {
   }
   var dates = [date1, date2, date3, date4, date5, date6, date7];
 
-  if (flag)
-    getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
-  else
-    getMatches('CsvFiles/CsvNow/' + val + '.csv', dates);
-
-
+  //if (flag)
+  //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
+  //else
+  getMatches('CsvFiles/CsvNewMatches/' + val + '.csv', dates);
 }
 
 function getMatches(doc, dates) {
   $.get(doc, function(data) {
 
-    var html = "<table class='table table-striped' >";
-    html += "<thead>";
-    html += "<tr>";
+      var html = "<table class='table table-striped' >";
+      html += "<thead>";
+      html += "<tr>";
 
-    html += "<th>Kod</th>";
+      html += "<th>Kod</th>";
 
-    //html += "<th>" + columns[1] + "</th>";
+      //html += "<th>" + columns[1] + "</th>";
 
-    html += "<th>Saat</th>";
+      html += "<th>Saat</th>";
 
-    html += "<th>Home</th>";
+      html += "<th>Home</th>";
 
-    html += "<th>Away</th>";
+      html += "<th>Away</th>";
 
-    html += "<th>1</th>";
+      html += "<th>1</th>";
 
-    html += "<th>0</th>";
+      html += "<th>0</th>";
 
-    html += "<th>2</th>";
+      html += "<th>2</th>";
 
-    html += "<th>Alt</th>";
+      html += "<th>Alt</th>";
 
-    html += "<th>Ust</th>";
+      html += "<th>Ust</th>";
 
-    html += "<th> Link </th>";
+      html += "<th> Link </th>";
 
-    html += "</tr>";
-    html += "</thead>";
+      html += "</tr>";
+      html += "</thead>";
 
-    html += "<tbody>";
-    var rows = data.split("\n");
+      html += "<tbody>";
+      var rows = data.split("\n");
 
+      html += "<tr><td class='date'>" + document.getElementById('startDate').value) + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
     rows.forEach(function getvalues(ourrow) {
 
       var columns = ourrow.split(",");
 
-
-
-      if (columns[0] === dates[0][1])
+      /*  if (columns[0] === dates[0][1])
         html += "<tr><td class='date'>" + dates[0][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
       if (columns[0] === dates[1][1])
         html += "<tr><td class='date'>" + dates[1][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
@@ -509,51 +508,28 @@ function getMatches(doc, dates) {
         html += "<tr><td class='date'>" + dates[5][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
       if (columns[0] === dates[6][1])
         html += "<tr><td class='date'>" + dates[6][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-
-
-
-
+*/
       html += "<tr>";
 
       html += "<td>" + columns[0] + "</td>";
-
       html += "<td>" + columns[1] + "</td>";
-
       html += "<td>" + columns[2] + "</td>";
-
       html += "<td>" + columns[3] + "</td>";
-
       html += "<td class='MS1'>" + columns[4] + "</td>";
-
       html += "<td class='MS0'>" + columns[5] + "</td>";
-
       html += "<td class='MS2'>" + columns[6] + "</td>";
-
       html += "<td class='alt'>" + columns[7] + "</td>";
-
       html += "<td class='ust'>" + columns[8] + "</td>";
-
-
-
       var path = "http://istatistik.nesine.com/HeadToHead/Index.aspx?matchCode=" + columns[0];
 
       html += "<td>";
       html += '<a href="' + path + '">Check Teams</a>';
       html += "</td>";
-
       html += "<td class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
-
       html += "</tr>";
-
-
     });
-    html += "</tbody>";
-    html += "</table>";
-
-
-    $('#container').empty().append(html);
-    doit();
-
+    html += "</tbody>"; html += "</table>";
+    $('#container').empty().append(html); doit();
   });
 }
 
@@ -563,9 +539,7 @@ function getMatchesNew(doc, dates) {
     var html = "<table class='table table-striped' >";
     html += "<thead>";
     html += "<tr>";
-
     html += "<th>Kod</th>";
-
     //html += "<th>" + columns[1] + "</th>";
 
     html += "<th>Saat</th>";
@@ -599,12 +573,8 @@ function getMatchesNew(doc, dates) {
     html += "<tbody>";
     var rows = data.split("\n");
 
-
     rows.forEach(function getvalues(ourrow) {
-
       var columns = ourrow.split(",");
-
-
 
       if (columns[0] === dates[0][1])
         html += "<tr><td class='date'>" + dates[0][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
@@ -620,9 +590,6 @@ function getMatchesNew(doc, dates) {
         html += "<tr><td class='date'>" + dates[5][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
       if (columns[0] === dates[6][1])
         html += "<tr><td class='date'>" + dates[6][0] + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-
-
-
 
       html += "<tr>";
 
