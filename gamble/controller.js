@@ -450,6 +450,9 @@ function myFunk(docName) {
   //if (flag)
   //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
   //else
+  html += document.getElementById('startDate').value;
+  html += document.getElementById('endDate').value;
+  $('#container').html(html);
   getMatches('CsvFiles/CsvNewMatches/' + docName + '.csv', dates);
 }
 
@@ -529,7 +532,10 @@ function getMatches(doc, dates) {
       html += "</tr>";
     });
     html += "</tbody>"; html += "</table>";
-    $('#container').empty().append(html); doit();
+    //$('#container').empty().append(html);
+    //$('#container').html(html);
+
+    doit();
   });
 }
 
