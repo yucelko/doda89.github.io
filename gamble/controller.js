@@ -3,7 +3,7 @@ var flag = "23-30Dec";
 function bringMatches() {
   alert(document.getElementById('startDate').value);
   alert(document.getElementById('endDate').value);
-  myFunk(document.getElementById('startDate').value);
+  //myFunk(document.getElementById('startDate').value);
   myFunk(document.getElementById('endDate').value);
 }
 $(document).ready(function() {
