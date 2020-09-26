@@ -490,7 +490,7 @@ function getMatches(doc, dates) {
 
       html += "<tr><td class='date'>" + document.getElementById('startDate').value + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
-    rows.forEach(function getvalues(ourrow) {
+      rows.forEach(function getvalues(ourrow) {
 
       var columns = ourrow.split(",");
 
