@@ -258,7 +258,7 @@ $(document).ready(function() {
 
 function myFunk(docName) {
   var flag = false;
-  /*if (docName === "25-31") {
+  if (docName === "25-31") {
     var val = document.getElementById('25-31').id;
     var date1 = ["25.10.2016 Tuesday", "401"];
     var date2 = ["26.10.2016 Wednesday", "471"];
@@ -461,7 +461,7 @@ function myFunk(docName) {
     flag = true;
   }
   var dates = [date1, date2, date3, date4, date5, date6, date7];
-*/
+
   //if (flag)
   //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
   //else
