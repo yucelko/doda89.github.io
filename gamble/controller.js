@@ -1,10 +1,9 @@
 var flag = "23-30Dec";
 
 function bringMatches() {
-  alert(document.getElementById('startDate').value);
-  alert(document.getElementById('endDate').value);
-  myFunk(document.getElementById('startDate').value);
-  myFunk(document.getElementById('endDate').value);
+  $('#container').clear();
+  paintMatch(document.getElementById('startDate').value);
+  paintMatch(document.getElementById('endDate').value);
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
@@ -240,7 +239,7 @@ $(document).ready(function() {
 });
 
 
-function myFunk(docName) {
+function paintMatch(docName) {
   var flag = false;
   if (docName === "25-31") {
 
@@ -533,7 +532,7 @@ function getMatches(doc, dates) {
     });
     html += "</tbody>"; html += "</table>";
     //$('#container').empty().append(html);
-    $('#container').html(html);
+    $('#container').append(html);
 
     doit();
   });
