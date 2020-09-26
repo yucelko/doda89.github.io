@@ -450,7 +450,7 @@ function myFunk(docName) {
   //if (flag)
   //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
   //else
-  html += document.getElementById('startDate').value;
+  var html += document.getElementById('startDate').value;
   html += document.getElementById('endDate').value;
   $('#container').html(html);
   getMatches('CsvFiles/CsvNewMatches/' + docName + '.csv', dates);
