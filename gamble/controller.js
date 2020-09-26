@@ -1,15 +1,11 @@
 var flag = "23-30Dec";
 
 function bringMatches() {
-
   alert(document.getElementById('startDate').value);
-
-    myFunk("25-31");
-
+  myFunk("25-31");
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
-  alert('hey');
   $('#startDateLabel').append("some Text");
   $(document).on('click', ".add", function() {
     $(this).removeClass('add');
