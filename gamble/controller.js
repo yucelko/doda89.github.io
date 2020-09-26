@@ -488,7 +488,7 @@ function getMatches(doc, dates) {
       html += "<tbody>";
       var rows = data.split("\n");
 
-      html += "<tr><td class='date'>" + document.getElementById('startDate').value) + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+      html += "<tr><td class='date'>" + document.getElementById('startDate').value + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
     rows.forEach(function getvalues(ourrow) {
 
