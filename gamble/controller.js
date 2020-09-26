@@ -1,13 +1,32 @@
 var flag = "23-30Dec";
-
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+var getDates = function(startDate, endDate) {
+  var dates = [],
+      currentDate = startDate,
+      addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      };
+  while (currentDate <= endDate) {
+    dates.push(currentDate);
+    currentDate = addDays.call(currentDate, 1);
+  }
+  return dates;
+};
 function bringMatches() {
   $('#container').empty();
-  myFunk(document.getElementById('startDate').value);
-  myFunk(document.getElementById('endDate').value);
+  var dates = getDates((new Date(document.getElementById('startDate').value)).addDays(1), (new Date(document.getElementById('endDate').value)).addDays(1));
+  dates.forEach(function(date) {
+        myFunk(date.toISOString().split('T')[0]);
+});
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
-  $('#startDateLabel').append("some Text");
   $(document).on('click', ".add", function() {
     $(this).removeClass('add');
     var kod = $(this).parent().find('td:eq(0)').html();
@@ -165,7 +184,7 @@ $(document).ready(function() {
     $('#container').empty();
   });
   $('#filter').on('click', function() {
-
+    alert('hey');
     var alt_min = $('#alt_min').val();
     var alt_max = $('#alt_max').val();
     var ust_min = $('#ust_min').val();
@@ -203,7 +222,6 @@ $(document).ready(function() {
     if (tie_max.length === 0) tie_max = 100;
     if (away_min.length === 0) away_min = 0.1;
     if (away_max.length === 0) away_max = 100;
-
 
     $("#container table tbody tr").each(function() {
       $(this).show();
