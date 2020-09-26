@@ -4,7 +4,7 @@ function bringMatches() {
   alert(document.getElementById('startDate').value);
   alert(document.getElementById('endDate').value);
   //myFunk(document.getElementById('startDate').value);
-  myFunk(document.getElementById('endDate').value);
+//  myFunk(document.getElementById('endDate').value);
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
