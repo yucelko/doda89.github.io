@@ -1,7 +1,7 @@
 var flag = "23-30Dec";
 
 function bringMatches() {
-  $('#container').clear();
+  $('#container').empty();
   paintMatch(document.getElementById('startDate').value);
   paintMatch(document.getElementById('endDate').value);
 }
