@@ -450,7 +450,7 @@ function myFunk(docName) {
   //if (flag)
   //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
   //else
-  getMatches('CsvFiles/CsvNewMatches/' + val + '.csv', dates);
+  getMatches('CsvFiles/CsvNewMatches/' + docName + '.csv', dates);
 }
 
 function getMatches(doc, dates) {
