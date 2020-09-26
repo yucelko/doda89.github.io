@@ -1,10 +1,11 @@
 var flag = "23-30Dec";
 $(document).ready(function() {
-    $( "input[type=checkbox]" ).change( "click", doit );
-    $(document).on('click', ".add", function() {
-
+  $( "input[type=checkbox]" ).change( "click", doit );
+  function bringMatches() {
+  alert('hey');
+  }
+    $(document).on('click', "button", function() {
         $(this).removeClass('add');
-
         var kod = $(this).parent().find('td:eq(0)').html();
         var saat = $(this).parent().find('td:eq(1)').html();
         var home = $(this).parent().find('td:eq(2)').html();
@@ -45,6 +46,7 @@ $(document).ready(function() {
     });
 
     myFunk(flag);
+
     $('#25-31').on('click', function () {
         $('#dropdownMenu1').html("25-31");
         flag = "25-31";
