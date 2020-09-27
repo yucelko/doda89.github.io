@@ -26,6 +26,7 @@ function bringMatches() {
   });
   filter();
 }
+
 function filter() {
   alert('hey');
   var alt_min = $('#alt_min').val();
@@ -95,7 +96,7 @@ function filter() {
   });
   doit();
 
-});
+};
 
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
