@@ -20,7 +20,7 @@ var getDates = function(startDate, endDate) {
 
 function bringMatches() {
   $('#container').empty();
-  var dates = getDates((new Date(document.getElementById('startDate').value)).addDays(1), (new Date(document.getElementById('endDate').value)).addDays(1));
+  var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
   dates.forEach(function(date) {
     myFunk(date.toISOString().split('T')[0]);
   });
@@ -97,76 +97,76 @@ $(document).ready(function() {
 
     $('#container').empty();
   });
-  $('#filter').click() {
-    alert('hey');
-    var alt_min = $('#alt_min').val();
-    var alt_max = $('#alt_max').val();
-    var ust_min = $('#ust_min').val();
-    var ust_max = $('#ust_max').val();
-    var alt1_min = $('#alt1_min').val();
-    var alt1_max = $('#alt1_max').val();
-    var ust1_min = $('#ust1_min').val();
-    var ust1_max = $('#ust1_max').val();
-    var alt3_min = $('#alt3_min').val();
-    var alt3_max = $('#alt3_max').val();
-    var ust3_min = $('#ust3_min').val();
-    var ust3_max = $('#ust3_max').val();
-    var home_min = $('#home_min').val();
-    var home_max = $('#home_max').val();
-    var tie_min = $('#tie_min').val();
-    var tie_max = $('#tie_max').val();
-    var away_min = $('#away_min').val();
-    var away_max = $('#away_max').val();
 
-    if (alt_min.length === 0) alt_min = 0.1;
-    if (alt_max.length === 0) alt_max = 100;
-    if (ust_min.length === 0) ust_min = 0.1;
-    if (ust_max.length === 0) ust_max = 100;
-    if (alt1_min.length === 0) alt1_min = 0.1;
-    if (alt1_max.length === 0) alt1_max = 100;
-    if (ust1_min.length === 0) ust1_min = 0.1;
-    if (ust1_max.length === 0) ust1_max = 100;
-    if (alt3_min.length === 0) alt3_min = 0.1;
-    if (alt3_max.length === 0) alt3_max = 100;
-    if (ust3_min.length === 0) ust3_min = 0.1;
-    if (ust3_max.length === 0) ust3_max = 100;
-    if (home_min.length === 0) home_min = 0.1;
-    if (home_max.length === 0) home_max = 100;
-    if (tie_min.length === 0) tie_min = 0.1;
-    if (tie_max.length === 0) tie_max = 100;
-    if (away_min.length === 0) away_min = 0.1;
-    if (away_max.length === 0) away_max = 100;
+});
+function filter() {
+  alert('hey');
+  var alt_min = $('#alt_min').val();
+  var alt_max = $('#alt_max').val();
+  var ust_min = $('#ust_min').val();
+  var ust_max = $('#ust_max').val();
+  var alt1_min = $('#alt1_min').val();
+  var alt1_max = $('#alt1_max').val();
+  var ust1_min = $('#ust1_min').val();
+  var ust1_max = $('#ust1_max').val();
+  var alt3_min = $('#alt3_min').val();
+  var alt3_max = $('#alt3_max').val();
+  var ust3_min = $('#ust3_min').val();
+  var ust3_max = $('#ust3_max').val();
+  var home_min = $('#home_min').val();
+  var home_max = $('#home_max').val();
+  var tie_min = $('#tie_min').val();
+  var tie_max = $('#tie_max').val();
+  var away_min = $('#away_min').val();
+  var away_max = $('#away_max').val();
 
-    $("#container table tbody tr").each(function() {
-      $(this).show();
-      var ms1 = $(this).find("td.MS1");
-      var ms0 = $(this).find("td.MS0");
-      var ms2 = $(this).find("td.MS2");
-      var alt = $(this).find("td.alt");
-      var alt1 = $(this).find("td.alt1");
-      var alt3 = $(this).find("td.alt3");
-      var ust = $(this).find("td.ust");
-      var ust1 = $(this).find("td.ust1");
-      var ust3 = $(this).find("td.ust3");
-      if (ms1.html() === "" && alt.html() === "")
+  if (alt_min.length === 0) alt_min = 0.1;
+  if (alt_max.length === 0) alt_max = 100;
+  if (ust_min.length === 0) ust_min = 0.1;
+  if (ust_max.length === 0) ust_max = 100;
+  if (alt1_min.length === 0) alt1_min = 0.1;
+  if (alt1_max.length === 0) alt1_max = 100;
+  if (ust1_min.length === 0) ust1_min = 0.1;
+  if (ust1_max.length === 0) ust1_max = 100;
+  if (alt3_min.length === 0) alt3_min = 0.1;
+  if (alt3_max.length === 0) alt3_max = 100;
+  if (ust3_min.length === 0) ust3_min = 0.1;
+  if (ust3_max.length === 0) ust3_max = 100;
+  if (home_min.length === 0) home_min = 0.1;
+  if (home_max.length === 0) home_max = 100;
+  if (tie_min.length === 0) tie_min = 0.1;
+  if (tie_max.length === 0) tie_max = 100;
+  if (away_min.length === 0) away_min = 0.1;
+  if (away_max.length === 0) away_max = 100;
+
+  $("#container table tbody tr").each(function() {
+    $(this).show();
+    var ms1 = $(this).find("td.MS1");
+    var ms0 = $(this).find("td.MS0");
+    var ms2 = $(this).find("td.MS2");
+    var alt = $(this).find("td.alt");
+    var alt1 = $(this).find("td.alt1");
+    var alt3 = $(this).find("td.alt3");
+    var ust = $(this).find("td.ust");
+    var ust1 = $(this).find("td.ust1");
+    var ust3 = $(this).find("td.ust3");
+    if (ms1.html() === "" && alt.html() === "")
+      $(this).hide();
+    if (ms1.html() !== "")
+      if (parseFloat(ms1.html()) < parseFloat(home_min) || parseFloat(ms1.html()) > parseFloat(home_max) || parseFloat(ms0.html()) < parseFloat(tie_min) || parseFloat(ms0.html()) > parseFloat(tie_max) || parseFloat(ms2.html()) < parseFloat(away_min) || parseFloat(ms2.html()) > parseFloat(away_max))
         $(this).hide();
-      if (ms1.html() !== "")
-        if (parseFloat(ms1.html()) < parseFloat(home_min) || parseFloat(ms1.html()) > parseFloat(home_max) || parseFloat(ms0.html()) < parseFloat(tie_min) || parseFloat(ms0.html()) > parseFloat(tie_max) || parseFloat(ms2.html()) < parseFloat(away_min) || parseFloat(ms2.html()) > parseFloat(away_max))
-          $(this).hide();
-      if (alt.html() !== "")
-        if (parseFloat(alt.html()) < parseFloat(alt_min) || parseFloat(alt.html()) > parseFloat(alt_max) || parseFloat(ust.html()) < parseFloat(ust_min) || parseFloat(ust.html()) > parseFloat(ust_max))
-          $(this).hide();
-      if (alt1.html() !== "")
-        if (parseFloat(alt1.html()) < parseFloat(alt1_min) || parseFloat(alt1.html()) > parseFloat(alt1_max) || parseFloat(ust1.html()) < parseFloat(ust1_min) || parseFloat(ust1.html()) > parseFloat(ust1_max))
-          $(this).hide();
-      if (alt3.html() !== "")
-        if (parseFloat(alt3.html()) < parseFloat(alt3_min) || parseFloat(alt3.html()) > parseFloat(alt3_max) || parseFloat(ust3.html()) < parseFloat(ust3_min) || parseFloat(ust3.html()) > parseFloat(ust3_max))
-          $(this).hide();
-
-    });
-    doit();
+    if (alt.html() !== "")
+      if (parseFloat(alt.html()) < parseFloat(alt_min) || parseFloat(alt.html()) > parseFloat(alt_max) || parseFloat(ust.html()) < parseFloat(ust_min) || parseFloat(ust.html()) > parseFloat(ust_max))
+        $(this).hide();
+    if (alt1.html() !== "")
+      if (parseFloat(alt1.html()) < parseFloat(alt1_min) || parseFloat(alt1.html()) > parseFloat(alt1_max) || parseFloat(ust1.html()) < parseFloat(ust1_min) || parseFloat(ust1.html()) > parseFloat(ust1_max))
+        $(this).hide();
+    if (alt3.html() !== "")
+      if (parseFloat(alt3.html()) < parseFloat(alt3_min) || parseFloat(alt3.html()) > parseFloat(alt3_max) || parseFloat(ust3.html()) < parseFloat(ust3_min) || parseFloat(ust3.html()) > parseFloat(ust3_max))
+        $(this).hide();
 
   });
+  doit();
 
 });
 
