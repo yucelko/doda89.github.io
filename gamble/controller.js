@@ -19,9 +19,8 @@ function BringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
   dates.forEach(function(date) {
-    myFunk(date.toISOString().split('T')[0]);
+    GetMatches('CsvFiles/CsvNew/' + date.toISOString().split('T')[0] + '.csv');
   });
-  filter();
 }
 function Filter() {
   alert('hey');
@@ -172,45 +171,3 @@ function HideIfChecked() {
       $(this).hide();
   });
 }
-/*$(document).ready(function() {
-  $("input[type=checkbox]").change("click", doit);
-  $(document).on('click', ".add", function() {
-    $(this).removeClass('add');
-    var kod = $(this).parent().find('td:eq(0)').html();
-    var saat = $(this).parent().find('td:eq(1)').html();
-    var home = $(this).parent().find('td:eq(2)').html();
-    var away = $(this).parent().find('td:eq(3)').html();
-    var MS1 = $(this).parent().find('td:eq(4)').html();
-    var MS0 = $(this).parent().find('td:eq(5)').html();
-    var MS2 = $(this).parent().find('td:eq(6)').html();
-    var alt = $(this).parent().find('td:eq(7)').html();
-    var ust = $(this).parent().find('td:eq(8)').html();
-    var link = $(this).parent().find('td:eq(9)').html();
-    if (ust[ust.length - 1] === "\n")
-      ust = ust.slice(0, -1);
-    $(this).attr('id', kod);
-    var kod_td = "<td>" + kod + "</td>";
-    var home_td = "<td>" + home + "</td>";
-    var away_td = "<td>" + away + "</td>";
-    var MS1td = "<td class='hid'>" + MS1 + "</td>";
-    var MS0td = "<td class='hid'>" + MS0 + "</td>";
-    var MS2td = "<td class='hid'>" + MS2 + "</td>";
-    var alt_td = "<td class='hid'>" + alt + "</td>";
-    var ust_td = "<td class='hid'>" + ust + "</td>";
-
-    var minus = "<td class='minus'>" + "<span class='glyphicon glyphicon-minus-sign button' aria-hidden='true'></span>" + "</td>";
-    var html = "<tr>" + kod_td + home_td + away_td + MS1td + MS0td + MS2td + alt_td + ust_td + minus + "</tr>";
-    for (var i = 0; i < html.length; i++) {
-      html = html.replace(".", ",");
-    }
-    $('#selectedMatches').append(html);
-    download();
-
-  });
-  $(document).on('click', ".minus", function() {
-    $(this).parent().remove();
-    var id = '#' + $(this).parent().find('td:eq(0)').html();
-    $(id).addClass('add');
-    Download();
-  });
-});*/
