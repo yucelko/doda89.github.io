@@ -19,7 +19,7 @@ function BringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
   dates.forEach(function(date) {
-    GetMatches('CsvFiles/CsvNewMatches/' + date.toISOString().split('T')[0] + '.csv');
+    GetMatches(date.toISOString().split('T')[0]);
   });
 }
 function Filter() {
@@ -110,8 +110,8 @@ function Clear() {
   $('#away_min').val('');
   $('#away_max').val('');
 }
-function GetMatches(doc) {
-  $.get(doc, function(data) {
+function GetMatches(date) {
+  $.get('CsvFiles/CsvNewMatches/' + date + '.csv', function(data) {
     var html = "<table class='table table-striped' >";
     html += "<thead>";
     html += "<tr>";
@@ -130,7 +130,7 @@ function GetMatches(doc) {
     html += "<tbody>";
     var rows = data.split("\n");
 
-    html += "<tr><td class='date'>" + document.getElementById('startDate').value + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+    html += "<tr><td class='date'>" + date + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
     rows.forEach(function getvalues(ourrow) {
       var columns = ourrow.split(",");
