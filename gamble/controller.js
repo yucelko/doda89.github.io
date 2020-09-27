@@ -18,7 +18,7 @@ function Reset(){
 function BringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
-  dates.forEach(function(date) {
+  dates.sort(function(a,b){return a.getTime() - b.getTime()});.forEach(function(date) {
     GetMatches(date.toISOString().split('T')[0]);
   });
 }
