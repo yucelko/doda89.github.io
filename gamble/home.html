@@ -25,7 +25,7 @@
     <label for="endDate">End Date:</label>
     <input type="date" id="endDate" name="endDate">
     <br>
-    <button class="btn btn-info" id="bringMatches" onclick="bringMatches()" type="button">Bring Matches!</button>
+    <button class="btn btn-info" id="bringMatches" onclick="BringMatches()" type="button">Bring Matches!</button>
     <p id="p1">Please select the date range to see the matches</p>
   </div>
   <div id="container" class="col-md-9"></div>
@@ -163,9 +163,9 @@
       </div>
       <div class="container">
         <div class="row">
-          <span class="col-md-1 text-center"> <button class="btn btn-info" id="filter" onclick="filter()" type="button">Filter</button></span>
-          <span class="col-md-1 text-center"> <input class="btn btn-primary" id="reset" type="button" value="Reset" /></span>
-          <span class="col-md-1 text-center"> <input class="btn btn-warning" id="clear" type="button" value="Clear" /></span>
+          <span class="col-md-1 text-center"> <button class="btn btn-info" id="filter" onclick="Filter()" type="button">Filter</button></span>
+          <span class="col-md-1 text-center"> <button class="btn btn-primary" id="reset" onclick="Reset()" type="button">Reset</button></span>
+          <span class="col-md-1 text-center"> <button class="btn btn-warning" id="clear" onclick="Clear()" type="button">Clear</button></span>
         </div>
       </div>
       <div class="checkboxdiv">
