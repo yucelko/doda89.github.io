@@ -24,6 +24,7 @@ function bringMatches() {
   dates.forEach(function(date) {
     myFunk(date.toISOString().split('T')[0]);
   });
+  filter();
 }
 function filter() {
   alert('hey');
