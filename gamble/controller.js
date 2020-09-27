@@ -19,7 +19,7 @@ function BringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
   dates.forEach(function(date) {
-    GetMatches('CsvFiles/CsvNew/' + date.toISOString().split('T')[0] + '.csv');
+    GetMatches('CsvFiles/CsvNewMatches/' + date.toISOString().split('T')[0] + '.csv');
   });
 }
 function Filter() {
