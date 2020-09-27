@@ -23,7 +23,6 @@ function BringMatches() {
   });
 }
 function Filter() {
-  alert('hey');
   var alt_min = $('#alt_min').val();
   var alt_max = $('#alt_max').val();
   var ust_min = $('#ust_min').val();
@@ -61,7 +60,6 @@ function Filter() {
   if (tie_max.length === 0) tie_max = 100;
   if (away_min.length === 0) away_min = 0.1;
   if (away_max.length === 0) away_max = 100;
-
   $("#container table tbody tr").each(function() {
     $(this).show();
     var ms1 = $(this).find("td.MS1");
