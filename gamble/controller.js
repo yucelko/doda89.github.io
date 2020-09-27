@@ -1,29 +1,29 @@
-var flag = "23-30Dec";
 Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
 }
 var getDates = function(startDate, endDate) {
   var dates = [],
-      currentDate = startDate,
-      addDays = function(days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-      };
+    currentDate = startDate,
+    addDays = function(days) {
+      var date = new Date(this.valueOf());
+      date.setDate(date.getDate() + days);
+      return date;
+    };
   while (currentDate <= endDate) {
     dates.push(currentDate);
     currentDate = addDays.call(currentDate, 1);
   }
   return dates;
 };
+
 function bringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)).addDays(1), (new Date(document.getElementById('endDate').value)).addDays(1));
   dates.forEach(function(date) {
-        myFunk(date.toISOString().split('T')[0]);
-});
+    myFunk(date.toISOString().split('T')[0]);
+  });
 }
 $(document).ready(function() {
   $("input[type=checkbox]").change("click", doit);
@@ -60,7 +60,6 @@ $(document).ready(function() {
     download();
 
   });
-
   $(document).on('click', ".minus", function() {
     $(this).parent().remove();
     var id = '#' + $(this).parent().find('td:eq(0)').html();
@@ -70,93 +69,8 @@ $(document).ready(function() {
 
   myFunk(flag);
 
-  /*$('#25-31').on('click', function() {
-    $('#dropdownMenu1').html("25-31");
-    flag = "25-31";
-    myFunk(flag);
-  });
-  $('#28-31').on('click', function() {
-    $('#dropdownMenu1').html("28-31");
-    flag = "28-31";
-    myFunk(flag);
-  });
-  $('#1-6').on('click', function() {
-    $('#dropdownMenu1').html("1-6");
-    flag = "1-6";
-    myFunk(flag);
-  });
-  $('#4-7').on('click', function() {
-    $('#dropdownMenu1').html("4-7");
-    flag = "4-7";
-    myFunk(flag);
-  });
-  $('#8-13').on('click', function() {
-    $('#dropdownMenu1').html("8-13");
-    flag = "8-13";
-    myFunk(flag);
-  });
-  $('#11-15').on('click', function() {
-    $('#dropdownMenu1').html("11-15");
-    flag = "11-15";
-    myFunk(flag);
-  });
-  $('#15-21').on('click', function() {
-    $('#dropdownMenu1').html("15-21");
-    flag = "15-21";
-    myFunk(flag);
-  });
-  $('#15-21Nov').on('click', function() {
-    $('#dropdownMenu1').html("15-21Nov");
-    flag = "15-21Nov";
-    myFunk(flag);
-  });
-  $('#18-22Nov').on('click', function() {
-    $('#dropdownMenu1').html("18-22Nov");
-    flag = "18-22Nov";
-    myFunk(flag);
-  });
-  $('#22-28Nov').on('click', function() {
-    $('#dropdownMenu1').html("22-28Nov");
-    flag = "22-28Nov";
-    myFunk(flag);
-  });
-  $('#25-28Nov').on('click', function() {
-    $('#dropdownMenu1').html("25-28Nov");
-    flag = "25-28Nov";
-    myFunk(flag);
-  });
-  $('#29-5Nov').on('click', function() {
-    $('#dropdownMenu1').html("29-5Nov");
-    flag = "29-5Nov";
-    myFunk(flag);
-  });
-  $('#2-5Nov').on('click', function() {
-    $('#dropdownMenu1').html("2-5Nov");
-    flag = "2-5Nov";
-    myFunk(flag);
-  });
-  $('#6-12Dec').on('click', function() {
-    $('#dropdownMenu1').html("6-12Dec");
-    flag = "6-12Dec";
-    myFunk(flag);
-  });
-  $('#13-19Dec').on('click', function() {
-    $('#dropdownMenu1').html("13-19Dec");
-    flag = "13-19Dec";
-    myFunk(flag);
-  });
-  $('#16-19Dec').on('click', function() {
-    $('#dropdownMenu1').html("16-19Dec");
-    flag = "16-19Dec";
-    myFunk(flag);
-  });
-  $('#23-30Dec').on('click', function() {
-    $('#dropdownMenu1').html("23-30Dec");
-    flag = "23-30Dec";
-    myFunk(flag);
-  });*/
-  $('#clear').on('click', function() {
 
+  $('#clear').on('click', function() {
     $('#alt_min').val('');
     $('#alt_max').val('');
     $('#ust_min').val('');
@@ -183,7 +97,7 @@ $(document).ready(function() {
 
     $('#container').empty();
   });
-  $('#filter').on('click', function() {
+  $('#filter').click() {
     alert('hey');
     var alt_min = $('#alt_min').val();
     var alt_max = $('#alt_max').val();
@@ -465,50 +379,50 @@ function myFunk(docName) {
   //if (flag)
   //  getMatchesNew('CsvFiles/CsvNew/' + val + '.csv', dates)
   //else
-//  var html = document.getElementById('startDate').value;
-//  html += document.getElementById('endDate').value;
-//  $('#container').html(html);
+  //  var html = document.getElementById('startDate').value;
+  //  html += document.getElementById('endDate').value;
+  //  $('#container').html(html);
   getMatches('CsvFiles/CsvNewMatches/' + docName + '.csv', dates);
 }
 
 function getMatches(doc, dates) {
   $.get(doc, function(data) {
 
-      var html = "<table class='table table-striped' >";
-      html += "<thead>";
-      html += "<tr>";
+    var html = "<table class='table table-striped' >";
+    html += "<thead>";
+    html += "<tr>";
 
-      html += "<th>Kod</th>";
+    html += "<th>Kod</th>";
 
-      //html += "<th>" + columns[1] + "</th>";
+    //html += "<th>" + columns[1] + "</th>";
 
-      html += "<th>Saat</th>";
+    html += "<th>Saat</th>";
 
-      html += "<th>Home</th>";
+    html += "<th>Home</th>";
 
-      html += "<th>Away</th>";
+    html += "<th>Away</th>";
 
-      html += "<th>1</th>";
+    html += "<th>1</th>";
 
-      html += "<th>0</th>";
+    html += "<th>0</th>";
 
-      html += "<th>2</th>";
+    html += "<th>2</th>";
 
-      html += "<th>Alt</th>";
+    html += "<th>Alt</th>";
 
-      html += "<th>Ust</th>";
+    html += "<th>Ust</th>";
 
-      html += "<th> Link </th>";
+    html += "<th> Link </th>";
 
-      html += "</tr>";
-      html += "</thead>";
+    html += "</tr>";
+    html += "</thead>";
 
-      html += "<tbody>";
-      var rows = data.split("\n");
+    html += "<tbody>";
+    var rows = data.split("\n");
 
-      html += "<tr><td class='date'>" + document.getElementById('startDate').value + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+    html += "<tr><td class='date'>" + document.getElementById('startDate').value + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
-      rows.forEach(function getvalues(ourrow) {
+    rows.forEach(function getvalues(ourrow) {
 
       var columns = ourrow.split(",");
 
@@ -546,7 +460,8 @@ function getMatches(doc, dates) {
       html += "<td class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
       html += "</tr>";
     });
-    html += "</tbody>"; html += "</table>";
+    html += "</tbody>";
+    html += "</table>";
     //$('#container').empty().append(html);
     $('#container').append(html);
 
